@@ -1,6 +1,6 @@
 package com.gotasoft.movies.data.source
 
-import com.gotasoft.movies.data.Movies
+import com.gotasoft.movies.data.Movie
 
 /**
  * Created by dattien on 9/17/17.
@@ -8,13 +8,11 @@ import com.gotasoft.movies.data.Movies
 
 interface MovieDataSource {
     interface LoadMovieCallback {
-        fun onMovieLoaded(movies: List<Movies>)
+        fun onMovieLoaded(movies: List<Movie>)
 
         fun onDataNotAvailable()
     }
 
-    interface LoadCategoryCallback {
-
-    }
+    fun getMovies(id: String, version: String, lang: String, callback: LoadMovieCallback)
 }
 

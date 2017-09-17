@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="domain"> http://azfun.net</string>
+    <string name="version">20170101</string>
+    <string name="lang">en</string>
+</resources>
