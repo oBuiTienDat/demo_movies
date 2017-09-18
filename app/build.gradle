@@ -14,6 +14,10 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        jackOptions {
+            enabled true
+        }
     }
     buildTypes {
         release {
@@ -30,21 +34,25 @@ android {
         main.java.srcDirs += 'build/generated/source/greendao'
     }
 
-    productFlavors {
-        staging {
-            applicationId "com.gotasoft.movies"
-            versionNameSuffix '.staging'
-        }
-        product {
-            applicationId "com.gotasoft.movies"
-            versionNameSuffix '.product'
-        }
-    }
-
-    sourceSets {
-        main.java.srcDirs += 'src/main'
-        staging.resources.srcDirs = ['src/staging/res']
-        product.resources.srcDirs = ['src/product/res']
+//    productFlavors {
+//        staging {
+//            applicationId "com.gotasoft.movies"
+//            versionNameSuffix '.staging'
+//        }
+//        product {
+//            applicationId "com.gotasoft.movies"
+//            versionNameSuffix '.product'
+//        }
+//    }
+//
+//    sourceSets {
+//        main.java.srcDirs += 'src/main'
+//        staging.resources.srcDirs = ['src/staging/res']
+//        product.resources.srcDirs = ['src/product/res']
+//    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
     }
 }
 
@@ -66,7 +74,7 @@ dependencies {
     compile 'com.android.support:support-v4:26.+'
     compile 'com.google.guava:guava:22.0-android'
     compile 'com.google.code.findbugs:jsr305:2.0.1'
-    compile 'org.jetbrains.kotlin:kotlin-stdlib-jre7:1.1.4-2'
+    compile 'org.jetbrains.kotlin:kotlin-stdlib-jre7:1.1.1'
     testCompile 'junit:junit:4.12'
     compile 'org.greenrobot:greendao:3.2.0'
     compile 'de.greenrobot:greendao-generator:2.1.0'
@@ -74,7 +82,10 @@ dependencies {
     kapt 'com.android.databinding:compiler:2.3.3'
     //api
     compile 'com.google.code.gson:gson:2.7'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:retrofit-mock:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'io.reactivex:rxjava:1.1.9'
-    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
 }
