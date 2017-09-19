@@ -1,19 +1,26 @@
 package com.gotasoft.movies.splash
 
-import android.support.v7.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-
+import android.os.Handler
+import android.os.Looper
+import android.support.v7.app.AppCompatActivity
 import com.gotasoft.movies.R
-import com.gotasoft.movies.data.Category
-import com.gotasoft.movies.data.Product
-import com.gotasoft.movies.data.source.ProductDataSource
-import com.gotasoft.movies.data.source.remote.ProductRemoteDataSource
+import com.gotasoft.movies.home.HomeActivity
+
 
 class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+        val mHandler = Handler(Looper.myLooper())
+        mHandler.postDelayed({ openHome() }, 3000)
+    }
+
+    private fun openHome() {
+        val intent = Intent(this, HomeActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }
