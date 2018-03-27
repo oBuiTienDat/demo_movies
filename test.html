@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Mobile support -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+
+  <!-- Material Design fonts -->
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+  <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- jQuery -->
+  <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+  <!-- Compiled and minified JavaScript -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+  <!-- Riot -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/riot/2.3.18/riot+compiler.js"></script>
+
+  <!--script type="riot/tag" src="app.html"></script-->
+</head>
+<body>
+<h1>access ex-scheme test</h1>
+<strong>webview</strong>
+<ul class="collection">
+  <li class="collection-item"><a href="com-access-store://?taggroup=content_type&tag=comic&wording=content_type:comic">com-access-store + taggroup + tag(use prohibition)</a></li>
+  <li class="collection-item"><a href="com-access-store://?id=SHSA_ST01C88122508701_57">com-access-store + id(vol.87:charge)</a></li>
+  <li class="collection-item"><a href="com-access-store://?id=SHSA_ST01F00000221501_57">com-access-store + id(vol.01:free)</a></li>
+  <li class="collection-item"><a href="com-access-store://?id=SHSA_XM05PAY002080601_57">com-access-store + id(cp.806)(use prohibition)</a></li>
+  <li class="collection-item"><a href="com-access-store://?id=SHSA_XM05PAY002000101_57">com-access-store + id(cp.01)(use prohibition)</a></li>
+  <li class="collection-item"><a href="com-access-store://?search=ONE_PIECE">com-access-store + search</a></li>
+  <li class="collection-item"><a href="com-access-store://works?work_id=ONE_PIECE_V2_COLOR">com-access-store + work(normal)</a></li>
+  <li class="collection-item"><a href="com-access-store://works?work_id=WORK_0000000000000611">com-access-store + work(abnormal)</a></li>
+  <li class="collection-item"><a href="com-access-store://authors">com-access-store + authors</a></li>
+  <li class="collection-item"><a href="com-access-store://serials">com-access-store + serials</a></li>
+  <li class="collection-item"><a href="com-access-view:///SHSA_ST01C88122508701_57">com-access-view(vol.87:chage)</a></li>
+  <li class="collection-item"><a href="com-access-view:///SHSA_ST01F00000221501_57">com-access-view(vol.01:free)</a></li>
+  <li class="collection-item"><a href="com-access-view:///SHSA_XM05PAY002080601_57">com-access-view(cp.806:charge)(Prohibited for charge PPV)</a></li>
+  <li class="collection-item"><a href="com-access-view:///SHSA_XM05PAY002000101_57">com-access-view(cp.01:free)</a></li>
+  <li class="collection-item"><a href="com-access-webview://?url=http%3A%2F%2Fwww.yahoo.co.jp">com-access-webview:yahoo</a></li>
+  <li class="collection-item"><a href="com-access-news://">com-access-news</a></li>
+  <li class="collection-item"><a href="com-access-settings://">com-access-settings</a></li>
+  <li class="collection-item"><a href="com-access-inquiry://">com-access-inquiry(use prohibition)</a></li>
+  <li class="collection-item"><a href="com-access-bookshelf://">com-access-bookshelf(use prohibition)</a></li>
+  <li class="collection-item"><a href="com-access-browser://?url=http%3A%2F%2Fwww.yahoo.co.jp">com-access-browser</a></li>
+</ul>
+<strong>browser</strong>
+<ul class="collection">
+  <li class="collection-item"><a href="com-access-shxm05://?uri=com-access-store%3A%2F%2F%3Ftaggroup%3Dcontent_type%26tag%3Dcomic%26wording%3Dcontent_type%3Acomic">com-access-store + taggroup + tag(use prohibition)</a></li>
+  <li class="collection-item"><a href="com-access-shxm05://?uri=com-access-store%3A%2F%2F%3Fid%3DSHSA_ST01C88122508701_57">com-access-store + id(vol.87:charge)</a></li>
+  <li class="collection-item"><a href="com-access-shxm05://?uri=com-access-store%3A%2F%2F%3Fid%3DSHSA_ST01F00000221501_57">com-access-store + id(vol.01:free)</a></li>
+  <li class="collection-item"><a href="com-access-shxm05://?uri=com-access-store%3A%2F%2F%3Fid%3DSHSA_XM05PAY002080601_57">com-access-store + id(cp.806)(use prohibition)</a></li>
+  <li class="collection-item"><a href="com-access-shxm05://?uri=com-access-store%3A%2F%2F%3Fid%3DSHSA_XM05PAY002000101_57">com-access-store + id(cp.01)(use prohibition)</a></li>
+  <li class="collection-item"><a href="com-access-shxm05://?uri=com-access-store%3A%2F%2F%3Fsearch%3DONE_PIECE">com-access-store + search</a></li>
+  <li class="collection-item"><a href="com-access-shxm05://?uri=com-access-store%3A%2F%2Fworks%3Fwork_id%3DONE_PIECE_V2_COLOR">com-access-store + work(normal)</a></li>
+  <li class="collection-item"><a href="com-access-shxm05://?uri=com-access-store%3A%2F%2Fworks%3Fwork_id%3DWORK_0000000000000611">com-access-store + work(abnormal)</a></li>
+  <li class="collection-item"><a href="com-access-shxm05://?uri=com-access-store%3A%2F%2Fauthors">com-access-store + authors</a></li>
+  <li class="collection-item"><a href="com-access-shxm05://?uri=com-access-store%3A%2F%2Fserials">com-access-store + serials</a></li>
+  <li class="collection-item"><a href="com-access-shxm05://?uri=com-access-view%3A%2F%2F%2FSHSA_ST01C88122508701_57">com-access-view(vol.87:chage)</a></li>
+  <li class="collection-item"><a href="com-access-shxm05://?uri=com-access-view%3A%2F%2F%2FSHSA_ST01F00000221501_57">com-access-view(vol.01:free)</a></li>
+  <li class="collection-item"><a href="com-access-shxm05://?uri=com-access-view%3A%2F%2F%2FSHSA_XM05PAY002080601_57">com-access-view(cp.806:charge)(Prohibited for charge PPV)</a></li>
+  <li class="collection-item"><a href="com-access-shxm05://?uri=com-access-view%3A%2F%2F%2FSHSA_XM05PAY002000101_57">com-access-view(cp.01:free)</a></li>
+  <li class="collection-item"><a href="com-access-shxm05://?uri=com-access-webview%3A%2F%2F%3Furl%3Dhttp%253A%252F%252Fwww.yahoo.co.jp">com-access-webview:yahoo</a></li>
+  <li class="collection-item"><a href="com-access-shxm05://?uri=com-access-news%3A%2F%2F">com-access-news</a></li>
+  <li class="collection-item"><a href="com-access-shxm05://?uri=com-access-settings%3A%2F%2F">com-access-settings</a></li>
+  <li class="collection-item"><a href="com-access-shxm05://?uri=com-access-inquiry%3A%2F%2F">com-access-inquiry(use prohibition)</a></li>
+  <li class="collection-item"><a href="com-access-shxm05://?uri=com-access-bookshelf%3A%2F%2F">com-access-bookshelf(use prohibition)</a></li>
+  <li class="collection-item"><a href="com-access-shxm05://?uri=com-access-browser%3A%2F%2F%3Furl%3Dhttp%3A%2F%2Fwww.yahoo.co.jp">com-access-browser</a></li>
+</ul>
+<ul class="collection">
+  <li class="collection-item"><a href="com-access-shxm05a://?uri=com-access-store%3A%2F%2F%3Ftaggroup%3Dcontent_type%26tag%3Dcomic%26wording%3Dcontent_type%3Acomic">com-access-store + taggroup + tag(use prohibition)</a></li>
+  <li class="collection-item"><a href="com-access-shxm05a://?uri=com-access-store%3A%2F%2F%3Fid%3DSHSA_ST01C88122508701_57">com-access-store + id(vol.87:charge)</a></li>
+  <li class="collection-item"><a href="com-access-shxm05a://?uri=com-access-store%3A%2F%2F%3Fid%3DSHSA_ST01F00000221501_57">com-access-store + id(vol.01:free)</a></li>
+  <li class="collection-item"><a href="com-access-shxm05a://?uri=com-access-store%3A%2F%2F%3Fid%3DSHSA_XM05PAY002080601_57">com-access-store + id(cp.806)(use prohibition)</a></li>
+  <li class="collection-item"><a href="com-access-shxm05a://?uri=com-access-store%3A%2F%2F%3Fid%3DSHSA_XM05PAY002000101_57">com-access-store + id(cp.01)(use prohibition)</a></li>
+  <li class="collection-item"><a href="com-access-shxm05a://?uri=com-access-store%3A%2F%2F%3Fsearch%3DONE_PIECE">com-access-store + search</a></li>
+  <li class="collection-item"><a href="com-access-shxm05a://?uri=com-access-store%3A%2F%2Fworks%3Fwork_id%3DONE_PIECE_V2_COLOR">com-access-store + work(normal)</a></li>
+  <li class="collection-item"><a href="com-access-shxm05a://?uri=com-access-store%3A%2F%2Fworks%3Fwork_id%3DWORK_0000000000000611">com-access-store + work(abnormal)</a></li>
+  <li class="collection-item"><a href="com-access-shxm05a://?uri=com-access-store%3A%2F%2Fauthors">com-access-store + authors</a></li>
+  <li class="collection-item"><a href="com-access-shxm05a://?uri=com-access-store%3A%2F%2Fserials">com-access-store + serials</a></li>
+  <li class="collection-item"><a href="com-access-shxm05a://?uri=com-access-view%3A%2F%2F%2FSHSA_ST01C88122508701_57">com-access-view(vol.87:chage)</a></li>
+  <li class="collection-item"><a href="com-access-shxm05a://?uri=com-access-view%3A%2F%2F%2FSHSA_ST01F00000221501_57">com-access-view(vol.01:free)</a></li>
+  <li class="collection-item"><a href="com-access-shxm05a://?uri=com-access-view%3A%2F%2F%2FSHSA_XM05PAY002080601_57">com-access-view(cp.806:charge)(Prohibited for charge PPV)</a></li>
+  <li class="collection-item"><a href="com-access-shxm05a://?uri=com-access-view%3A%2F%2F%2FSHSA_XM05PAY002000101_57">com-access-view(cp.01:free)</a></li>
+  <li class="collection-item"><a href="com-access-shxm05a://?uri=com-access-webview%3A%2F%2F%3Furl%3Dhttp%253A%252F%252Fwww.yahoo.co.jp">com-access-webview:yahoo</a></li>
+  <li class="collection-item"><a href="com-access-shxm05a://?uri=com-access-news%3A%2F%2F">com-access-news</a></li>
+  <li class="collection-item"><a href="com-access-shxm05a://?uri=com-access-settings%3A%2F%2F">com-access-settings</a></li>
+  <li class="collection-item"><a href="com-access-shxm05a://?uri=com-access-inquiry%3A%2F%2F">com-access-inquiry(use prohibition)</a></li>
+  <li class="collection-item"><a href="com-access-shxm05a://?uri=com-access-bookshelf%3A%2F%2F">com-access-bookshelf(use prohibition)</a></li>
+  <li class="collection-item"><a href="com-access-shxm05a://?uri=com-access-browser%3A%2F%2F%3Furl%3Dhttp%3A%2F%2Fwww.yahoo.co.jp">com-access-browser</a></li>
+</ul>
+</body>
+</html>
