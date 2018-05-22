@@ -4,21 +4,18 @@ import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Generated;
 
-import java.io.Serializable;
-
 /**
- * Created by dattien on 9/17/17.
+ * Created by dattien on 10/7/17.
  */
-@Entity(nameInDb = "Product")
-public class Product implements Serializable {
-    static final long serialVersionUID = 1L;
-
+@Entity(nameInDb = "Detail")
+public class Detail {
     @Id
     private String id;
-    private String name;
     private String userId;
     private String nameEng;
+    private String name;
     private String language;
+    private String imdbRating;
     private String genre;
     private String director;
     private String actors;
@@ -26,27 +23,29 @@ public class Product implements Serializable {
     private String active;
     private String categoryId;
     private String img;
+    private String time;
     private String created;
     private String modified;
-    private String count;
+    private String timeRelease;
     private String tubeId;
-    private String description;
-    private String imdbRating;
-    private String poster;
     private String trailerId;
-
-    @Generated(hash = 2029959035)
-    public Product(String id, String name, String userId, String nameEng,
-            String language, String genre, String director, String actors,
-            String plot, String active, String categoryId, String img,
-            String created, String modified, String count, String tubeId,
-            String description, String imdbRating, String poster,
-            String trailerId) {
+    private String hotMovie;
+    private String poster;
+    private String year;
+    private String btnPlayTrailer;
+    @Generated(hash = 1241403511)
+    public Detail(String id, String userId, String nameEng, String name,
+            String language, String imdbRating, String genre, String director,
+            String actors, String plot, String active, String categoryId,
+            String img, String time, String created, String modified,
+            String timeRelease, String tubeId, String trailerId, String hotMovie,
+            String poster, String year, String btnPlayTrailer) {
         this.id = id;
-        this.name = name;
         this.userId = userId;
         this.nameEng = nameEng;
+        this.name = name;
         this.language = language;
+        this.imdbRating = imdbRating;
         this.genre = genre;
         this.director = director;
         this.actors = actors;
@@ -54,17 +53,19 @@ public class Product implements Serializable {
         this.active = active;
         this.categoryId = categoryId;
         this.img = img;
+        this.time = time;
         this.created = created;
         this.modified = modified;
-        this.count = count;
+        this.timeRelease = timeRelease;
         this.tubeId = tubeId;
-        this.description = description;
-        this.imdbRating = imdbRating;
-        this.poster = poster;
         this.trailerId = trailerId;
+        this.hotMovie = hotMovie;
+        this.poster = poster;
+        this.year = year;
+        this.btnPlayTrailer = btnPlayTrailer;
     }
-    @Generated(hash = 1890278724)
-    public Product() {
+    @Generated(hash = 1665969126)
+    public Detail() {
     }
     public String getId() {
         return this.id;
@@ -72,23 +73,35 @@ public class Product implements Serializable {
     public void setId(String id) {
         this.id = id;
     }
-    public String getName() {
-        return this.name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
     public String getUserId() {
         return this.userId;
     }
     public void setUserId(String userId) {
         this.userId = userId;
     }
+    public String getNameEng() {
+        return this.nameEng;
+    }
+    public void setNameEng(String nameEng) {
+        this.nameEng = nameEng;
+    }
+    public String getName() {
+        return this.name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
     public String getLanguage() {
         return this.language;
     }
     public void setLanguage(String language) {
         this.language = language;
+    }
+    public String getImdbRating() {
+        return this.imdbRating;
+    }
+    public void setImdbRating(String imdbRating) {
+        this.imdbRating = imdbRating;
     }
     public String getGenre() {
         return this.genre;
@@ -132,6 +145,12 @@ public class Product implements Serializable {
     public void setImg(String img) {
         this.img = img;
     }
+    public String getTime() {
+        return this.time;
+    }
+    public void setTime(String time) {
+        this.time = time;
+    }
     public String getCreated() {
         return this.created;
     }
@@ -144,11 +163,11 @@ public class Product implements Serializable {
     public void setModified(String modified) {
         this.modified = modified;
     }
-    public String getCount() {
-        return this.count;
+    public String getTimeRelease() {
+        return this.timeRelease;
     }
-    public void setCount(String count) {
-        this.count = count;
+    public void setTimeRelease(String timeRelease) {
+        this.timeRelease = timeRelease;
     }
     public String getTubeId() {
         return this.tubeId;
@@ -156,23 +175,17 @@ public class Product implements Serializable {
     public void setTubeId(String tubeId) {
         this.tubeId = tubeId;
     }
-    public String getDescription() {
-        return this.description;
+    public String getTrailerId() {
+        return this.trailerId;
     }
-    public void setDescription(String description) {
-        this.description = description;
+    public void setTrailerId(String trailerId) {
+        this.trailerId = trailerId;
     }
-    public String getNameEng() {
-        return this.nameEng;
+    public String getHotMovie() {
+        return this.hotMovie;
     }
-    public void setNameEng(String nameEng) {
-        this.nameEng = nameEng;
-    }
-    public String getImdbRating() {
-        return this.imdbRating;
-    }
-    public void setImdbRating(String imdbRating) {
-        this.imdbRating = imdbRating;
+    public void setHotMovie(String hotMovie) {
+        this.hotMovie = hotMovie;
     }
     public String getPoster() {
         return this.poster;
@@ -180,11 +193,18 @@ public class Product implements Serializable {
     public void setPoster(String poster) {
         this.poster = poster;
     }
-    public String getTrailerId() {
-        return this.trailerId;
+    public String getYear() {
+        return this.year;
     }
-    public void setTrailerId(String trailerId) {
-        this.trailerId = trailerId;
+    public void setYear(String year) {
+        this.year = year;
     }
-    
+    public String getBtnPlayTrailer() {
+        return this.btnPlayTrailer;
+    }
+    public void setBtnPlayTrailer(String btnPlayTrailer) {
+        this.btnPlayTrailer = btnPlayTrailer;
+    }
+
+
 }

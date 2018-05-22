@@ -6,6 +6,7 @@ import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
 import com.gotasoft.movies.R
 import com.gotasoft.movies.data.Category
+import com.gotasoft.movies.data.Detail
 import com.gotasoft.movies.data.Product
 
 import retrofit2.Retrofit
@@ -26,10 +27,20 @@ interface ApiRemoteDataSource {
                    @Query("version") version: String,
                    @Query("lang") lang: String): Observable<List<Product>>
 
+    @GET("/atests/getProducts")
+    fun searchProduct(@Query("id") id: String,
+                  @Query("category") category: String,
+                  @Query("version") version: String,
+                  @Query("lang") lang: String,
+                  @Query("search") search: String): Observable<List<Product>>
+
     @GET("/atests/getCategories")
     fun getCategories(@Query("id") id: String,
                       @Query("version") version: String,
                       @Query("lang") lang: String): Observable<List<Category>>
+
+    @GET("/atests/detail")
+    fun getDetail(@Query("detail") id: String): Observable<Detail>
 
     object Factory {
 

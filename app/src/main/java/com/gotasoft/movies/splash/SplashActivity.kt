@@ -6,7 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import android.support.v7.app.AppCompatActivity
 import com.gotasoft.movies.R
-import com.gotasoft.movies.home.HomeActivity
+import com.gotasoft.movies.home.ProductActivity
 
 
 class SplashActivity : AppCompatActivity() {
@@ -19,7 +19,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun openHome() {
-        val intent = Intent(this, HomeActivity::class.java)
+        val intent = Intent(this, ProductActivity::class.java)
         startActivity(intent)
         finish()
     }

@@ -1,5 +1,6 @@
 package com.gotasoft.movies
 
+import android.app.Application
 import android.support.multidex.MultiDexApplication
 
 /**
@@ -7,7 +8,19 @@ import android.support.multidex.MultiDexApplication
  */
 
 class App : MultiDexApplication() {
+
     override fun onCreate() {
+        mApplication = this
         super.onCreate()
     }
+
+
+    companion object {
+        private lateinit var mApplication: MultiDexApplication
+        fun getInstance(): Application? {
+            return mApplication
+        }
+    }
+
+
 }

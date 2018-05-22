@@ -8,7 +8,8 @@ import com.gotasoft.movies.data.source.remote.ProductRemoteDataSource
  * Created by FRAMGIA\bui.tien.dat on 18/09/2017.
  */
 
-class ProductRepository private constructor(context: Context) : ProductDataSource {
+class ProductRepository(context: Context) : ProductDataSource {
+
 
     private val productRemoteDataSource: ProductRemoteDataSource
 
@@ -20,6 +21,12 @@ class ProductRepository private constructor(context: Context) : ProductDataSourc
                             version: String, lang: String,
                             callback: ProductDataSource.LoadProductCallback) {
         productRemoteDataSource.getProduct(id, category, version, lang, callback)
+    }
+
+    override fun searchProduct(id: String, category: String,
+                               version: String, lang: String, text: String,
+                               callback: ProductDataSource.LoadProductCallback) {
+        productRemoteDataSource.searchProduct(id, category, version, lang, text, callback)
     }
 
     companion object {

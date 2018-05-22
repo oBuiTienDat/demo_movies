@@ -14,7 +14,8 @@ import rx.schedulers.Schedulers
  * Created by FRAMGIA\bui.tien.dat on 18/09/2017.
  */
 
-class ProductRemoteDataSource (context: Context) : BaseRemoteDataSource(context), ProductDataSource {
+class ProductRemoteDataSource(context: Context) : BaseRemoteDataSource(context), ProductDataSource {
+
     private var subscription: Subscription? = null
 
     override fun getProduct(id: String, category: String, version: String, lang: String, callback: ProductDataSource.LoadProductCallback) {
@@ -27,6 +28,20 @@ class ProductRemoteDataSource (context: Context) : BaseRemoteDataSource(context)
                     callback.onProductLoaded(data)
                 }) { error ->
                     Log.e("ProductRemoteDataSource", "movie error -> " + error)
+                    callback.onDataNotAvailable()
+                }
+    }
+
+    override fun searchProduct(id: String, category: String, version: String, lang: String, text: String, callback: ProductDataSource.LoadProductCallback) {
+        cancelSubscription()
+        subscription = apiRemoteDataSource?.searchProduct(id, category, version, lang, text)
+                ?.subscribeOn(Schedulers.newThread())
+                ?.observeOn(AndroidSchedulers.mainThread())
+                ?.subscribe({ data ->
+                    Log.e("ProductRemoteDataSource Search", "list movie -> " + Gson().toJson(data))
+                    callback.onProductLoaded(data)
+                }) { error ->
+                    Log.e("ProductRemoteDataSource Search", "movie error -> " + error)
                     callback.onDataNotAvailable()
                 }
     }

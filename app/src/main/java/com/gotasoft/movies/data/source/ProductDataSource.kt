@@ -14,5 +14,7 @@ interface ProductDataSource {
     }
 
     fun getProduct(id: String, category: String, version: String, lang: String, callback: LoadProductCallback)
+
+    fun searchProduct(id: String, category: String, version: String, lang: String, text: String, callback: LoadProductCallback)
 }
 

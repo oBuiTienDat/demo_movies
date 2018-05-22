@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="rate">Rate &amp; more</string>
+    <string name="home">Home</string>
+    <string name="my_movies">My movies</string>
+    <string name="history">History</string>
+    <string name="play">Watch trailer movie</string>
+    <string name="info">Info</string>
+    <string name="note">Note</string>
+    <string name="related">Related</string>
+    <string name="you_rate">Your rate:</string>
+    <string name="imdb">IMDB\n   </string>
+    <string name="director">Director:</string>
+    <string name="actors">Actors:</string>
+    <string name="genre">Genre:</string>
 </resources>
