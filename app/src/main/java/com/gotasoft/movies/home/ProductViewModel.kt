@@ -50,6 +50,22 @@ class ProductViewModel(context: Context) : BaseObservable() {
         })
     }
 
+    fun loadHistoryProduct() {
+        if (mProductRepository.getListProductLocal() != null) {
+            mProductContract.showProduct(mProductRepository.getListProductLocal()!!)
+        } else {
+            mProductContract.showError()
+        }
+    }
+
+    fun loadAddProduct() {
+        if (mProductRepository.getListAddProductLocal() != null) {
+            mProductContract.showProduct(mProductRepository.getListAddProductLocal()!!)
+        } else {
+            mProductContract.showError()
+        }
+    }
+
     fun searchProduct(category: Category, text: String) {
         isLoading = true
         reload()

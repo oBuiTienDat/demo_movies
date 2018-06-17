@@ -24,10 +24,32 @@ class ProductLocalDataSource(context: Context) {
         mProductDao?.update(product)
     }
 
-    fun getListProduct(categoryId: String): List<Product>? {
+    fun removeProduct(product: Product) {
+        mProductDao?.delete(product)
+    }
+
+    fun getListProduct(): List<Product>? {
         try {
-            return mProductDao?.queryBuilder()?.orderDesc(ProductDao.Properties.CategoryId) as List<Product>
-        } catch (e: DaoException) {
+            return mProductDao?.queryBuilder()?.orderDesc(ProductDao.Properties.Id)?.list()
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return null
+        }
+    }
+
+    fun getListAddProduct(): List<Product>? {
+        try {
+            return mProductDao?.queryBuilder()?.where(ProductDao.Properties.IsAdd.eq(true))?.list()
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return null
+        }
+    }
+
+    fun getProduct(categoryId: String): Product? {
+        try {
+            return mProductDao?.queryBuilder()?.where(ProductDao.Properties.Id.eq(categoryId))?.list()?.get(0)
+        } catch (e: Exception) {
             e.printStackTrace()
             return null
         }

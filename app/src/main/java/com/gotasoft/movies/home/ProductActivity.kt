@@ -9,6 +9,8 @@ import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
+import android.view.Gravity
 import android.view.View
 import android.view.animation.TranslateAnimation
 import android.widget.Toast
@@ -67,7 +69,8 @@ class ProductActivity : AppCompatActivity(), ProductContract.View {
         }
 
         mActivityHomeBinding.drawerLayout.setDrawerListener(mDrawerToggle)
-        mActivityHomeBinding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, findViewById(R.id.frame_right))
+
+        mActivityHomeBinding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, Gravity.RIGHT)
 
         mProductViewModel = ProductViewModel(this)
         mProductViewModel.start(this)
@@ -147,8 +150,10 @@ class ProductActivity : AppCompatActivity(), ProductContract.View {
     }
 
     override fun onMyMovies() {
+        mProductViewModel.loadAddProduct()
     }
 
     override fun onHistory() {
+        mProductViewModel.loadHistoryProduct()
     }
 }

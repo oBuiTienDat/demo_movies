@@ -244,6 +244,7 @@
                             android:layout_centerVertical="true"
                             android:layout_toStartOf="@+id/img_share"
                             android:onClick="@{() -> viewDetail.onAdd()}"
+                            android:visibility="@{ViewModel.visibleAdd ? View.VISIBLE: View.GONE}"
                             android:padding="8dp"
                             android:src="@drawable/add" />
 
@@ -270,6 +271,7 @@
         </android.support.design.widget.CoordinatorLayout>
 
         <include
+            android:visibility="gone"
             android:id="@+id/include"
             layout="@layout/layout_menu"
             android:layout_width="match_parent"

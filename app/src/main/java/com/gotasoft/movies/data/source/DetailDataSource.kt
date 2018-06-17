@@ -14,4 +14,12 @@ interface DetailDataSource {
 
     fun getDetail(id: String, callback: LoadDetailCallback)
 
+    fun getDetailLocal(id: String) : Detail?
+
+    fun getListDetailLocal() : List<Detail>?
+
+    fun addDetailLocal(detail: Detail): Boolean
+
+    fun removeDetailLocal(detail: Detail) : Boolean
+
 }

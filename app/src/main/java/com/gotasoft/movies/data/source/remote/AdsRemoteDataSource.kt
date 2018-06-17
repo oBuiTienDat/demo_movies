@@ -4,32 +4,35 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.util.Log
 import com.google.gson.Gson
-import com.gotasoft.movies.data.source.CategoryDataSource
+import com.gotasoft.movies.data.Ads
+import com.gotasoft.movies.data.source.AdsDataSource
 import rx.Subscription
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 
 /**
- * Created by dattien on 9/23/17.
+ * Created by dattien on 6/17/18.
  */
-
-class CategoryRemoteDataSource(context: Context) : BaseRemoteDataSource(context), CategoryDataSource {
+class AdsRemoteDataSource(context: Context) : BaseRemoteDataSource(context), AdsDataSource {
     private var subscription: Subscription? = null
 
     @SuppressLint("LongLogTag")
-    override fun getCategory(id: String, version: String, lang: String, callback: CategoryDataSource.LoadCategoryCallback) {
+    override fun getAds(callback: AdsDataSource.LoadAdsCallback) {
         cancelSubscription()
-        subscription = apiRemoteDataSource?.getCategories(id, version, lang)
+        subscription = apiRemoteDataSource?.getAds()
                 ?.subscribeOn(Schedulers.newThread())
                 ?.observeOn(AndroidSchedulers.mainThread())
                 ?.subscribe({ data ->
-                    Log.e("CategoryRemoteDataSource", "list movie -> " + Gson().toJson(data))
-                    callback.onCategoryLoaded(data)
+                    Log.e("AdsRemoteDataSource", "list ads -> " + Gson().toJson(data)+"/")
+                    var ads : Ads
+                    ads = Gson().fromJson(Gson().toJson(data).toString(),Ads::class.java)
+                    callback.onAdsLoaded(ads)
                 }) { error ->
-                    Log.e("CategoryRemoteDataSource", "category error -> " + error)
+                    Log.e("AdsRemoteDataSource", "ads error -> " + error)
                     callback.onDataNotAvailable()
                 }
     }
+
 
     fun cancelSubscription() {
         if (subscription != null && !subscription!!.isUnsubscribed) {
@@ -38,4 +41,3 @@ class CategoryRemoteDataSource(context: Context) : BaseRemoteDataSource(context)
         subscription = null
     }
 }
-

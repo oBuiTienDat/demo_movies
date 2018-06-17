@@ -9,6 +9,7 @@ import com.gotasoft.movies.data.Detail
 import com.gotasoft.movies.data.Product
 import com.gotasoft.movies.data.source.DetailDataSource
 import com.gotasoft.movies.data.source.DetailRepository
+import com.gotasoft.movies.data.source.ProductRepository
 
 /**
  * Created by dattien on 10/7/17.
@@ -16,15 +17,18 @@ import com.gotasoft.movies.data.source.DetailRepository
 class DetailViewModel(context: Context) : BaseObservable() {
     private val mContext: Context = context
     private lateinit var mDetailRepository: DetailRepository
+    private lateinit var mProductRepository: ProductRepository
     private lateinit var mDetailContract: DetailContract.View
     var isLoading: Boolean = false
     var textYourate = "";
     var textImdb = ""
     var textInfor = ""
+    var isVisibleAdd: Boolean = true
 
     fun start(view: DetailContract.View) {
         mDetailContract = view
         mDetailRepository = DetailRepository.getInstance(mContext)
+        mProductRepository = ProductRepository.getInstance(mContext)
     }
 
     fun setProduct(product: Product) {
@@ -39,8 +43,8 @@ class DetailViewModel(context: Context) : BaseObservable() {
         reload()
     }
 
-    fun setInfor(product: Product, id: Int){
-        when(id){
+    fun setInfor(product: Product, id: Int) {
+        when (id) {
             1 -> textInfor = mContext.getString(R.string.director) + "\n" +
                     product.director + "\n\n" +
                     mContext.getString(R.string.actors) + "\n" +
@@ -54,6 +58,23 @@ class DetailViewModel(context: Context) : BaseObservable() {
     }
 
 
+    fun addDetail(product: Product) {
+        var _product: Product? = mProductRepository.getProductLocal(product.id)
+        if (_product != null) {
+            product.isAdd = _product.isAdd
+            mProductRepository.removeProductLocal(_product)
+        }
+        mProductRepository.addProductLocal(product)
+        isVisibleAdd = !(product.isAdd ?: false)
+        reload()
+    }
+
+    fun updateDetail(product: Product) {
+        isVisibleAdd = false
+        product.isAdd = true
+        mProductRepository.updateProductLocal(product)
+        reload()
+    }
 
     fun loadDetail(idProduct: String) {
         if (TextUtils.isEmpty(idProduct)) {

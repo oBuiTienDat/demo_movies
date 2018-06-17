@@ -34,14 +34,14 @@ public class Product implements Serializable {
     private String imdbRating;
     private String poster;
     private String trailerId;
-
-    @Generated(hash = 2029959035)
+    private Boolean isAdd;
+    @Generated(hash = 1360976772)
     public Product(String id, String name, String userId, String nameEng,
             String language, String genre, String director, String actors,
             String plot, String active, String categoryId, String img,
             String created, String modified, String count, String tubeId,
-            String description, String imdbRating, String poster,
-            String trailerId) {
+            String description, String imdbRating, String poster, String trailerId,
+            Boolean isAdd) {
         this.id = id;
         this.name = name;
         this.userId = userId;
@@ -62,6 +62,7 @@ public class Product implements Serializable {
         this.imdbRating = imdbRating;
         this.poster = poster;
         this.trailerId = trailerId;
+        this.isAdd = isAdd;
     }
     @Generated(hash = 1890278724)
     public Product() {
@@ -83,6 +84,12 @@ public class Product implements Serializable {
     }
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+    public String getNameEng() {
+        return this.nameEng;
+    }
+    public void setNameEng(String nameEng) {
+        this.nameEng = nameEng;
     }
     public String getLanguage() {
         return this.language;
@@ -162,12 +169,6 @@ public class Product implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
-    public String getNameEng() {
-        return this.nameEng;
-    }
-    public void setNameEng(String nameEng) {
-        this.nameEng = nameEng;
-    }
     public String getImdbRating() {
         return this.imdbRating;
     }
@@ -186,5 +187,13 @@ public class Product implements Serializable {
     public void setTrailerId(String trailerId) {
         this.trailerId = trailerId;
     }
+    public Boolean getIsAdd() {
+        return this.isAdd;
+    }
+    public void setIsAdd(Boolean isAdd) {
+        this.isAdd = isAdd;
+    }
+
+
     
 }

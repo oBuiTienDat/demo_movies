@@ -5,6 +5,7 @@ import android.content.Context
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
 import com.gotasoft.movies.R
+import com.gotasoft.movies.data.Ads
 import com.gotasoft.movies.data.Category
 import com.gotasoft.movies.data.Detail
 import com.gotasoft.movies.data.Product
@@ -41,6 +42,9 @@ interface ApiRemoteDataSource {
 
     @GET("/atests/detail")
     fun getDetail(@Query("detail") id: String): Observable<Detail>
+
+    @GET("/atests/adsId/phimhd_v3/20170101")
+    fun getAds(): Observable<Object>
 
     object Factory {
 

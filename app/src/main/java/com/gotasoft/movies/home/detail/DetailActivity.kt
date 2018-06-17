@@ -11,6 +11,8 @@ import com.gotasoft.movies.R
 import com.gotasoft.movies.data.Detail
 import com.gotasoft.movies.data.Product
 import com.gotasoft.movies.databinding.ActivityDetailBinding
+import android.net.Uri
+
 
 /**
  * Created by dattien on 9/26/17.
@@ -32,6 +34,7 @@ class DetailActivity : AppCompatActivity(),
         mActivityDetailBinding.viewModel = mDetailViewModel
         mDetailViewModel.start(this)
         initView()
+        mDetailViewModel.addDetail(mProduct)
     }
 
     private fun initView() {
@@ -74,13 +77,19 @@ class DetailActivity : AppCompatActivity(),
     }
 
     override fun onShare() {
+        val sharingIntent = Intent(Intent.ACTION_SEND)
+        val screenshotUri = Uri.parse(mProduct.poster)
+        sharingIntent.type = "image/png"
+        sharingIntent.putExtra(Intent.EXTRA_STREAM, screenshotUri)
+        startActivity(Intent.createChooser(sharingIntent, "Share image using"))
     }
 
     override fun onAdd() {
+        mDetailViewModel.updateDetail(mProduct)
     }
 
     override fun onPlay() {
-        var mIntent = Intent(this, YoutubeActivity::class.java)
+        var mIntent = Intent(this, CustomYoutubeActivity::class.java)
         mIntent.putExtra("EXTRA_VIDEO_ID", mProduct.trailerId)
         startActivity(mIntent)
     }

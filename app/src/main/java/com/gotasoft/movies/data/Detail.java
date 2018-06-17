@@ -33,13 +33,14 @@ public class Detail {
     private String poster;
     private String year;
     private String btnPlayTrailer;
-    @Generated(hash = 1241403511)
+    private Boolean isAdd;
+    @Generated(hash = 1265833966)
     public Detail(String id, String userId, String nameEng, String name,
             String language, String imdbRating, String genre, String director,
             String actors, String plot, String active, String categoryId,
             String img, String time, String created, String modified,
             String timeRelease, String tubeId, String trailerId, String hotMovie,
-            String poster, String year, String btnPlayTrailer) {
+            String poster, String year, String btnPlayTrailer, Boolean isAdd) {
         this.id = id;
         this.userId = userId;
         this.nameEng = nameEng;
@@ -63,6 +64,7 @@ public class Detail {
         this.poster = poster;
         this.year = year;
         this.btnPlayTrailer = btnPlayTrailer;
+        this.isAdd = isAdd;
     }
     @Generated(hash = 1665969126)
     public Detail() {
@@ -205,6 +207,13 @@ public class Detail {
     public void setBtnPlayTrailer(String btnPlayTrailer) {
         this.btnPlayTrailer = btnPlayTrailer;
     }
+    public Boolean getIsAdd() {
+        return this.isAdd;
+    }
+    public void setIsAdd(Boolean isAdd) {
+        this.isAdd = isAdd;
+    }
+    
 
 
 }

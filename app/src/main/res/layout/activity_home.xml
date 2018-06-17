@@ -81,6 +81,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="60dp"
                         android:background="@color/colorMenu"
                         android:orientation="vertical">
 
@@ -97,63 +98,68 @@
                             android:orientation="horizontal">
 
                             <LinearLayout
-                                android:onClick="@{() ->viewaction.onHome()}"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginRight="20dp"
                                 android:layout_weight="1"
                                 android:gravity="center"
+                                android:onClick="@{() ->viewaction.onHome()}"
                                 android:orientation="vertical">
 
                                 <ImageButton
                                     android:layout_width="25dp"
                                     android:layout_height="25dp"
-                                    android:background="@drawable/house" />
+                                    android:background="@drawable/house"
+                                    android:clickable="false" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:clickable="false"
                                     android:text="@string/home"
                                     android:textColor="@color/colorTextMenu" />
                             </LinearLayout>
 
                             <LinearLayout
-                                android:onClick="@{() ->viewaction.onMyMovies()}"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="20dp"
                                 android:layout_marginRight="20dp"
                                 android:layout_weight="1"
                                 android:gravity="center"
+                                android:onClick="@{() ->viewaction.onMyMovies()}"
                                 android:orientation="vertical">
 
                                 <ImageButton
                                     android:layout_width="25dp"
                                     android:layout_height="25dp"
-                                    android:background="@drawable/film" />
+                                    android:background="@drawable/film"
+                                    android:clickable="false" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:clickable="false"
                                     android:text="@string/my_movies"
                                     android:textColor="@color/colorTextMenu" />
                             </LinearLayout>
 
                             <LinearLayout
-                                android:onClick="@{() ->viewaction.onHistory()}"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="20dp"
                                 android:layout_marginRight="10dp"
                                 android:layout_weight="1"
                                 android:gravity="center"
+                                android:onClick="@{() ->viewaction.onHistory()}"
                                 android:orientation="vertical">
 
                                 <ImageButton
                                     android:layout_width="25dp"
                                     android:layout_height="25dp"
-                                    android:background="@drawable/history" />
+                                    android:background="@drawable/history"
+                                    android:clickable="false" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -162,7 +168,20 @@
                                     android:textColor="@color/colorTextMenu" />
                             </LinearLayout>
                         </LinearLayout>
+
+
                     </LinearLayout>
+
+                    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/adView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        ads:adSize="BANNER"
+                        ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+
+                    </com.google.android.gms.ads.AdView>
                 </RelativeLayout>
 
             </FrameLayout>
