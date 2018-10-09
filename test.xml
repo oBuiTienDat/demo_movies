@@ -1,11 +1,11 @@
-<propertyList>
-   <entry key="one" class1="example">
-      <value>first value</value>
-   </entry>
-   <entry key="two" class1="FixedEntry">
-      <value>second value</value>
-   </entry>
-   <entry key="three" class1="demo.Entry">
-      <value>third value</value>
-   </entry>
-</propertyList>
+<orderManager>
+    <order name="AX101">
+        <product>Product A</product>
+    </order>
+    <order name="AX102">
+        <product>Product B</product>
+    </order>
+    <order name="AX103">
+        <product>Product C</product>
+    </order>
+</orderManager>
