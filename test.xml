@@ -1,0 +1,11 @@
+<propertyList>
+   <entry key="one" class="example.demo.ValidEntry">
+      <value>first value</value>
+   </entry>
+   <entry key="two" class="example.demo.FixedEntry">
+      <value>second value</value>
+   </entry>
+   <entry key="three" class="example.demo.Entry">
+      <value>third value</value>
+   </entry>
+</propertyList>
